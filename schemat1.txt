@@ -1,0 +1,24 @@
+@startuml
+start
+:Sort array in descending order;
+:Initialize sum = 0;
+:Initialize i = 0;
+
+while (i < n && sum <= k?) is (yes)
+    :sum += arr[i];
+    :i++;
+endwhile (no)
+
+if (sum > k?) then (yes)
+    :Print "Najkrótszy podciąg:";
+    while (j < i?) is (yes)
+        :Print arr[j];
+        :j++;
+    endwhile (no)
+    :Print newline;
+else (no)
+    :Print "Brak odpowiedniego podciągu!";
+endif
+
+stop
+@enduml

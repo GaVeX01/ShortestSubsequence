@@ -1,0 +1,33 @@
+@startuml
+start
+:title findShortestSubsequenceSlidingWindow
+
+:Inicjalizacja start = 0, sum = 0;
+:Inicjalizacja minLength = INT_MAX, minStart = 0;
+
+repeat
+    :Dodaj arr[end] do sumy;
+    if (sum > k) then (Tak)
+        repeat
+            if (end - start + 1 < minLength) then (Tak)
+                :Aktualizuj minLength i minStart;
+            endif
+            :Odejmij arr[start] od sumy;
+            :Zwiększ start o 1;
+        repeat while (sum > k)
+    endif
+    :Zwiększ end o 1;
+repeat while (end < n)
+
+if (minLength == INT_MAX) then (Tak)
+    :Wypisz "Brak odpowiedniego podciągu!";
+else
+    :Wypisz "Najkrótszy podciąg:";
+    repeat
+        :Wypisz arr[i];
+        :Zwiększ i o 1;
+    repeat while (i < minStart + minLength)
+endif
+
+stop
+@enduml

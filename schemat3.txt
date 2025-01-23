@@ -1,0 +1,38 @@
+@startuml
+start
+:title findShortestSubsequenceDP
+
+:Inicjalizacja dp[n], minLength = INT_MAX;
+:Inicjalizacja minStart = -1, minEnd = -1;
+
+repeat
+    :Ustaw sum = 0;
+    :Ustaw dp[i] = INT_MAX;
+
+    repeat
+        :Dodaj arr[j] do sumy;
+        if (sum > k) then (Tak)
+            :dp[i] = j - i + 1;
+            if (dp[i] < minLength) then (Tak)
+                :Aktualizuj minLength, minStart i minEnd;
+            endif
+            break
+        endif
+        :Zwiększ j o 1;
+    repeat while (j < n)
+    
+    :Zwiększ i o 1;
+repeat while (i < n)
+
+if (minLength == INT_MAX) then (Tak)
+    :Wypisz "Nie znaleziono podciągu";
+else
+    :Wypisz "Najkrótszy podciąg:";
+    repeat
+        :Wypisz arr[i];
+        :Zwiększ i o 1;
+    repeat while (i <= minEnd)
+endif
+
+stop
+@enduml
